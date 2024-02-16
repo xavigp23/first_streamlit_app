@@ -50,7 +50,8 @@ def insert_row_snowflake(new_fruit):
     return "Thanks for adding" + new_fruit
 
 add_my_fruit = streamlit.text_input('What fruit would you like information about?')
-streamlit.write(insert_row_snowflake(add_my_fruit))
+if streamlit.button('Add fruit'):
+  streamlit.write(insert_row_snowflake(add_my_fruit))
 
 if streamlit.button('Get Fruit list'):
   my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
